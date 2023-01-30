@@ -1,10 +1,12 @@
 body {
     background-color: rgb(255, 180, 0);
   }
-  h1 {
+h1 {
     color: rgb(0, 0, 120);
+    background-color: #ffffff;
   }
 
-  nav {
-    background-color: beige; text-align: center
+.navbarlist {
+    list-style-type: none; background-color: beige; text-align: center
+  
   }
