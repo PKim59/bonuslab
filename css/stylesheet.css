@@ -6,7 +6,15 @@ h1 {
     background-color: #ffffff;
   }
 
+.onlyindexh1 {
+  font-family: Montserrat, sans-serif;
+}
+
+nav {
+  background-color: beige; text-align: center
+}
+
 .navbarlist {
-    list-style-type: none; background-color: beige; text-align: center
+    list-style-type: none; 
   
   }
