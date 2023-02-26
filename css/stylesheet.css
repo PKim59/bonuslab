@@ -7,14 +7,25 @@ h1 {
   }
 
 .onlyindexh1 {
-  font-family: Montserrat, sans-serif;
+    font-family: Montserrat, sans-serif;
+  }
+
+.navbarheader {
+  background-color: beige;
+  color: rgb(0, 0, 120);
+  font-size: 50px;
+  align-items: center;
 }
 
 nav {
-  background-color: beige; text-align: center
+  background-color: beige; 
+  text-align: center;
 }
 
 .navbarlist {
     list-style-type: none; 
-  
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    gap: 10px;
   }
