@@ -14,13 +14,14 @@ h3 {
     font-family: Montserrat, sans-serif;
   }
 
-.header {
+.footerheader {
   background-color: beige;
   align-items: center;
   text-align: center;
 }
 
 nav {
+  width: 100%;
   background-color: beige; 
   text-align: center;
 }
@@ -40,8 +41,3 @@ nav {
   gap: 10px;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
