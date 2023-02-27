@@ -1,20 +1,23 @@
 body {
     background-color: rgb(255, 180, 0);
   }
-h1 {
+h1, h3 {
     color: rgb(0, 0, 120);
     background-color: #ffffff;
   }
+
+h3 {
+  font-size: 50px;
+}
 
 .onlyindexh1 {
     font-family: Montserrat, sans-serif;
   }
 
-.navbarheader {
+.header {
   background-color: beige;
-  color: rgb(0, 0, 120);
-  font-size: 50px;
   align-items: center;
+  text-align: center;
 }
 
 nav {
@@ -29,3 +32,16 @@ nav {
     padding-left: 10px;
     gap: 10px;
   }
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  gap: 10px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
