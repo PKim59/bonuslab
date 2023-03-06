@@ -33,8 +33,8 @@ nav {
     padding-bottom: 10px;
   }
 
-.navbarlist > ul > li {
-  padding-bottom: 10px;
+.navbarlist > li:last-of-type {
+  padding-top: 25px;
   }
 
 .courseformat {
@@ -48,17 +48,30 @@ nav {
   border-bottom: black 2px solid;
 }
 
+
 @media screen and (min-width: 600px) {
   .navbarlist {
     display: flex;
     justify-content: center;
-    padding-left: 10px;
     gap: 10px;
   }
+  .navbarlist > li:last-of-type {
+    padding-top: 0;
+    }
+
   .courseformat > li {
     display: grid;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr;
   }
+
+  .description {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+
 }
 
 .grid {
@@ -66,8 +79,4 @@ nav {
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 2fr 1fr;
   gap: 10px;
-}
-
-@media screen {
-  min-width: 600px;
 }
