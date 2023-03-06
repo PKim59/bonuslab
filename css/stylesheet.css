@@ -28,11 +28,38 @@ nav {
 
 .navbarlist {
     list-style-type: none; 
+    display: block;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+
+.navbarlist > ul > li {
+  padding-bottom: 10px;
+  }
+
+.courseformat {
+  list-style-type: none; 
+  display: block;
+  justify-content: center;
+  padding-bottom: 10px;
+}  
+
+.courseformat > li {
+  border-bottom: black 2px solid;
+}
+
+@media screen and (min-width: 600px) {
+  .navbarlist {
     display: flex;
     justify-content: center;
     padding-left: 10px;
     gap: 10px;
   }
+  .courseformat > li {
+    display: grid;
+    gap: 10px;
+  }
+}
 
 .grid {
   display: grid;
@@ -41,3 +68,6 @@ nav {
   gap: 10px;
 }
 
+@media screen {
+  min-width: 600px;
+}
