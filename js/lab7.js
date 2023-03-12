@@ -14,17 +14,23 @@ while (method === false) {
         else if (ask.length !== 4) {
                 alert("Please enter 4 digits/numbers! No more, no less.")
         } else {
-            alert("you entered: " + ask)
-            method === true
+            alert("you entered: " + ask);
+            let method = true
             break
         }
+    
     }
 
-for (let coursenum = 0; coursenum < courses.length; coursenum++) {
-    if courses[courseID][code].includes(ask) {
-        console.log("Yes, I am currently taking ")
-    }
-}  
-
-}
+while (method === true) {
+    for (let coursenum = 0; coursenum < courses.length; coursenum++) {
+        if (courses[courseID][code].includes(ask)) {
+            let coursedetails = courses[courseID][code].includes(ask)
+            console.log(`Yes, I am currently taking the course ${coursedetails.code} - ${coursedetails.name}`)
+            method = false
+        }
+        else {
+            courses.push({ask : {code: ask, name: null}})
+            console.log(`succeeded in entering ${ask} as a new course!`)
+        }
+    }   
 }
