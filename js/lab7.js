@@ -1,4 +1,4 @@
-const courses = [
+const courseList = [
     {code: "ACIT 1630", name: "Database Systems"},
     {code: "ORGB 1100", name: "Organizational Behaviour"},
     {code: "COMM 1116", name: "Business Communications"},
@@ -24,9 +24,9 @@ while (test === false) {
 let method = true;
 
 while (method === true) {
-    for (let coursenum = 0; coursenum < courses.length; coursenum++) {
-        if (courses[coursenum].code.includes(ask)) {
-            console.log(`Yes, I am currently taking ${courses[coursenum].code} - ${courses[coursenum].name}`);
+    for (let coursenum = 0; coursenum < courseList.length; coursenum++) {
+        if (courseList[coursenum].code.includes(ask)) {
+            console.log(`Yes, I am currently taking ${courseList[coursenum].code} - ${courseList[coursenum].name}`);
             method = false;
         }
         }
@@ -34,7 +34,7 @@ while (method === true) {
 
     if (method === true) {
             const newcourse = {code: ask, name: null};
-            courses.push(newcourse);
+            courseList.push(newcourse);
             console.log(`Succeeded in entering ${ask} as a new course!`);
             method = false;
             }
