@@ -7,15 +7,15 @@ const courses = [
 let test = false;
 
 let ask = prompt("Do you know what my course numbers are? Enter them here and find out!")
-console.log(ask)
+
 while (test === false) {
     if (isNaN(ask)) {
-        alert("Yeah, that's not really a number...");
+        alert("Yeah, that's not really a number...Try again!");
     }
     else if (ask.length !== 4) {
-        alert("Please enter 4 digits/numbers! No more, no less.");
+        alert("Please enter 4 digits/numbers! No more, no less!");
     } else {
-        alert("you entered: " + ask);
+        alert("you entered: " + ask + ", which is a valid entry!");
         test = true;
     }
 
@@ -24,23 +24,18 @@ while (test === false) {
 let method = true;
 
 while (method === true) {
-    let correct = false;
-
     for (let coursenum = 0; coursenum < courses.length; coursenum++) {
         if (courses[coursenum].code.includes(ask)) {
             console.log(`Yes, I am currently taking ${courses[coursenum].code} - ${courses[coursenum].name}`);
-            correct = true;
             method = false;
-            break
+        }
         }
 
-if (correct === false) {
-    const newcourse = {code: ask, name: null};
-    courses.push(newcourse);
-    console.log(`succeeded in entering ${ask} as a new course!`);
-    alert("new course added!");
-    correct = true;
-    method = false;
+
+    if (method === true) {
+            const newcourse = {code: ask, name: null};
+            courses.push(newcourse);
+            console.log(`Succeeded in entering ${ask} as a new course!`);
+            method = false;
+            }
     }
-    }
-}
