@@ -31,7 +31,6 @@ while (method === true) {
         }
         }
 
-
     if (method === true) {
             const newcourse = {code: ask, name: null};
             courseList.push(newcourse);
@@ -39,3 +38,10 @@ while (method === true) {
             method = false;
             }
     }
+
+function createCourseArray() {
+    const coursesource = document.querySelectorAll('.courseformat li');
+    const courseArray = [];
+
+
+}
