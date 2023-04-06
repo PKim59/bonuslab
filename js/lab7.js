@@ -40,8 +40,25 @@ while (method === true) {
     }
 
 function createCourseArray() {
-    const coursesource = document.querySelectorAll('.courseformat li');
-    const courseArray = [];
+    const coursecounter = document.querySelectorAll('.courseformat li');
+    const theCourseArray = [];
 
+    for (let i = 0; i < coursecounter.length; i++) {
+        const coursenameitems = coursecounter[i].querySelector('.coursename');
+        const coursedateitems = coursecounter[i].querySelector('.coursedate');
+    
+        if (coursenameitems && coursedateitems) {
+          const coursename = coursenameitems.textContent;
+          const coursedate = coursedateitems.textContent;
+          const courseDictionary = { code: coursename, date: coursedate };
 
+          theCourseArray.push(coursedictionary);    
+        }
+    }
+    return theCourseArray
 }
+
+createCourseArray()
+console.log()
+
+
