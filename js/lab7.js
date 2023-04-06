@@ -50,7 +50,7 @@ function createCourseArray() {
         if (coursenameitems && coursedateitems) {
           const coursename = coursenameitems.textContent;
           const coursedate = coursedateitems.textContent;
-          const courseDictionary = { code: coursename, date: coursedate };
+          const coursedictionary = { code: coursename, date: coursedate };
 
           theCourseArray.push(coursedictionary);    
         }
@@ -59,6 +59,6 @@ function createCourseArray() {
 }
 
 createCourseArray()
-console.log()
+console.log(theCourseArray)
 
 
