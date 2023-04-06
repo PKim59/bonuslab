@@ -4,41 +4,40 @@ const courseList = [
     {code: "COMM 1116", name: "Business Communications"},
 ];
 
-let test = false;
+// let test = false;
 
-let ask = prompt("Do you know what my course numbers are? Enter them here and find out!")
+// let ask = prompt("Do you know what my course numbers are? Enter them here and find out!")
 
-while (test === false) {
-    if (isNaN(ask)) {
-        alert("Yeah, that's not really a number...Try again!");
-    }
-    else if (ask.length !== 4) {
-        alert("Please enter 4 digits/numbers! No more, no less!");
-    } else {
-        alert("you entered: " + ask + ", which is a valid entry!");
-        test = true;
-    }
+// while (test === false) {
+//     if (isNaN(ask)) {
+//         alert("Yeah, that's not really a number...Try again!");
+//     }
+//     else if (ask.length !== 4) {
+//         alert("Please enter 4 digits/numbers! No more, no less!");
+//     } else {
+//         alert("you entered: " + ask + ", which is a valid entry!");
+//         test = true;
+//     }
 
-    }
+//     }
 
-let method = true;
+// let method = true;
 
-while (method === true) {
-    for (let coursenum = 0; coursenum < courseList.length; coursenum++) {
-        if (courseList[coursenum].code.includes(ask)) {
-            console.log(`Yes, I am currently taking ${courseList[coursenum].code} - ${courseList[coursenum].name}`);
-            method = false;
-        }
-        }
+// while (method === true) {
+//     for (let coursenum = 0; coursenum < courseList.length; coursenum++) {
+//         if (courseList[coursenum].code.includes(ask)) {
+//             console.log(`Yes, I am currently taking ${courseList[coursenum].code} - ${courseList[coursenum].name}`);
+//             method = false;
+//         }
+//         }
 
-    if (method === true) {
-            const newcourse = {code: ask, name: null};
-            courseList.push(newcourse);
-            console.log(`Succeeded in entering ${ask} as a new course!`);
-            method = false;
-            }
-    }
-
+//     if (method === true) {
+//             const newcourse = {code: ask, name: null};
+//             courseList.push(newcourse);
+//             console.log(`Succeeded in entering ${ask} as a new course!`);
+//             method = false;
+//             }
+//     }
 function createCourseArray() {
     const coursecounter = document.querySelectorAll('.courseformat li');
     const theCourseArray = [];
@@ -58,7 +57,34 @@ function createCourseArray() {
     return theCourseArray
 }
 
-createCourseArray()
-console.log(theCourseArray)
+const runcoursearray = createCourseArray()
+console.log(runcoursearray)
 
+function findCourse(runcoursearray) {
+    let ask = prompt("Enter a 4 digit course code!")
+    let newitem = false
+    let runtime = true
+    while (runtime === true) {
+        if (!/^\d{4}$/.test(ask)) {
+            ask = prompt("Enter a 4 digit course code!")
+            runtime = true;
+        } else {
+            runtime = false;
+        }
+    }
+    for (let i = 0; i < runcoursearray.length; i++) {
+        const coursesearch = document.querySelector(`.coursename:contains(${runcoursearray[i].code})`).parentNode;
+        if (runcoursearray[i].code.includes(ask)) {
+            coursesearch.classList.toggle("green");
+            newitem = true
+        }
+    }
+    if (newitem === false) {
+        const courselist = document.querySelector('.courseformat');
+        const newcourseitem = document.createElement('li');
+        newcourseitem.innerHTML = `<p class="coursename">${ask}: N/A</p><p class="coursedate">Fall 2020</p>`;
+        courselist.appendChild(newcourseitem);
+    }
+}
 
+findCourse(runcoursearray);
