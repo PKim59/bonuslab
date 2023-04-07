@@ -68,6 +68,7 @@ function findCourse(runcoursearray) {
   
     while (runtime === true) {
       if (!/^\d{4}$/.test(ask)) {
+        alert("So, that's not a 4 digit code. Let's try once more.")
         ask = prompt("Enter a 4 digit course code!");
         runtime = true;
       } else {
