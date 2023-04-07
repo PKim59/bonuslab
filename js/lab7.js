@@ -41,50 +41,57 @@ const courseList = [
 function createCourseArray() {
     const coursecounter = document.querySelectorAll('.courseformat li');
     const theCourseArray = [];
-
+  
     for (let i = 0; i < coursecounter.length; i++) {
-        const coursenameitems = coursecounter[i].querySelector('.coursename');
-        const coursedateitems = coursecounter[i].querySelector('.coursedate');
-    
-        if (coursenameitems && coursedateitems) {
-          const coursename = coursenameitems.textContent;
-          const coursedate = coursedateitems.textContent;
-          const coursedictionary = { code: coursename, date: coursedate };
-
-          theCourseArray.push(coursedictionary);    
-        }
+      const coursenameitems = coursecounter[i].querySelector('.coursename');
+      const coursedateitems = coursecounter[i].querySelector('.coursedate');
+  
+      if (coursenameitems && coursedateitems) {
+        const coursename = coursenameitems.textContent.trim(); // use trim to remove leading/trailing spaces
+        const coursedate = coursedateitems.textContent.trim(); // use trim to remove leading/trailing spaces
+        const coursedictionary = { code: coursename, date: coursedate };
+  
+        theCourseArray.push(coursedictionary);
+      }
     }
-    return theCourseArray
-}
+    return theCourseArray;
+  }
+  
 
-const runcoursearray = createCourseArray()
-console.log(runcoursearray)
+const runcoursearray = createCourseArray();
+console.log(runcoursearray);
 
 function findCourse(runcoursearray) {
-    let ask = prompt("Enter a 4 digit course code!")
-    let newitem = false
-    let runtime = true
+    let ask = prompt("Enter a 4 digit course code!");
+    let newitem = false;
+    let runtime = true;
+  
     while (runtime === true) {
-        if (!/^\d{4}$/.test(ask)) {
-            ask = prompt("Enter a 4 digit course code!")
-            runtime = true;
-        } else {
-            runtime = false;
-        }
+      if (!/^\d{4}$/.test(ask)) {
+        ask = prompt("Enter a 4 digit course code!");
+        runtime = true;
+      } else {
+        runtime = false;
+      }
     }
-    for (let i = 0; i < runcoursearray.length; i++) {
-        const coursesearch = document.querySelector(`.coursename:contains(${runcoursearray[i].code})`).parentNode;
-        if (runcoursearray[i].code.includes(ask)) {
-            coursesearch.classList.toggle("green");
-            newitem = true
-        }
+  
+    const coursenameitems = document.querySelectorAll('.coursename');
+  
+    for (let i = 0; i < coursenameitems.length; i++) {
+      const coursecode = coursenameitems[i].textContent.trim();
+  
+      if (coursecode.includes(ask)) {
+        coursenameitems[i].parentNode.classList.toggle("green");
+        newitem = true;
+      }
     }
+  
     if (newitem === false) {
-        const courselist = document.querySelector('.courseformat');
-        const newcourseitem = document.createElement('li');
-        newcourseitem.innerHTML = `<p class="coursename">${ask}: N/A</p><p class="coursedate">Fall 2020</p>`;
-        courselist.appendChild(newcourseitem);
+      const courselist = document.querySelector('.courseformat');
+      const newcourseitem = document.createElement('li');
+      newcourseitem.innerHTML = `<p class="coursename">${ask}</p><p class="description">N/A</p><p class="coursedate">Fall 2020</p>`;
+      courselist.appendChild(newcourseitem);
     }
-}
-
+  }
+  
 findCourse(runcoursearray);
